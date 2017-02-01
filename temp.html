@@ -1,0 +1,54 @@
+<html ng-app="TempConvert">
+    <head>
+        <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-controller="ConverterController as cc">
+            C°: <input type="text" ng-model="cc.celsius">
+            <button ng-click="cc.updatef()">Get F°</button>
+            <br/><br/>
+            F°: <input type="text" ng-model="cc.fahrenheit">
+            <button ng-click="cc.updatec()">Get C°</button>
+
+        </div>
+        <script>
+            var tempConvert = angular.module("TempConvert", []);
+            
+            tempConvert.controller("ConverterController", [
+                "$scope",
+                function($scope){
+                    //all the stuff the controller should do will go here
+                    
+                    //is hook up the controller to a variable to obtain its scope
+                    var cc = this;
+                    
+                    //C and F
+                    cc.celsius = 0;
+                    cc.fahrenheit = 0;
+                    cc.randomNumber = 0;
+                    
+                    cc.CtoF = function(temp){
+                      return (temp * 1.8) + 32;  
+                    };
+                    
+                    cc.FtoC = function(temp){
+                        return (temp - 32) / 1.8;
+                    };
+                    
+                    cc.Randomizer = function(){
+                        cc.randomNumber = Math.round(Math.random() * 100);
+                    };
+                    
+                   
+                    cc.updatec = function updatec(){
+                        cc.celsius = cc.FtoC(cc.fahrenheit);
+                    };
+                    
+                    cc.updatef = function updatef(){
+                        cc.fahrenheit = cc.CtoF(cc.celsius);
+                    };
+                }
+            ]);
+        </script>
+    </body>
+</html>
