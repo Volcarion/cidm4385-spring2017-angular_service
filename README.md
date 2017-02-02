@@ -1,6 +1,6 @@
 # UNIT CONVERTER
 
-This program is a *Unit Conversion App* that will conver Volume, Length, and Mass between metric and imperial.
+This program is a *Unit Conversion App* that will convert Volume, Length, and Mass between metric and imperial.
 
 1. It has a text box to receive input 
 2. It has two dropdown lists to choose which to convert from and to
